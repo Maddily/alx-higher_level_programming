@@ -14,15 +14,14 @@ int check_cycle(listint_t *list)
 		return (0);
 
 	tort = hare = list;
-	tort = tort->next;
-	hare = hare->next->next;
 
-	while (hare != NULL && hare->next != NULL)
+	while (tort != NULL && hare != NULL && hare->next != NULL)
 	{
-		if (tort == hare)
-			return (1);
 		tort = tort->next;
 		hare = hare->next->next;
+
+		if (tort == hare)
+			return (1);
 	}
 
 	return (0);
