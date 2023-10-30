@@ -10,6 +10,9 @@ int check_cycle(listint_t *list)
 {
 	listint_t *tort, *hare;
 
+	if (list == NULL)
+		return (0);
+
 	tort = hare = list;
 	tort = tort->next;
 	hare = hare->next->next;
