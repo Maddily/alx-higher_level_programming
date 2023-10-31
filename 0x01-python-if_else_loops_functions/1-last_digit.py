@@ -8,8 +8,6 @@ last_digit = -last_digit if num < 0 else last_digit
 
 print(f"Last digit of {num} is {last_digit} and is ", end="")
 
-last_digit = -last_digit if num < 0 else last_digit
-
 if last_digit > 5:
     print("greater than 5")
 elif last_digit == 0:
