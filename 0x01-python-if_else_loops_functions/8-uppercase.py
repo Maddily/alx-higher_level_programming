@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Transform a string into uppercase and print it"""
+"""Transform a string into uppercase and display it"""
 
 
 def uppercase(str):
