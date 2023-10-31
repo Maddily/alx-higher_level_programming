@@ -4,7 +4,7 @@
 
 i = 122
 while i >= 65:
-    print(chr(i), end="")
+    print("{}".format(chr(i)), end="")
     if i == 65:
         break
     if i >= 97 and i <= 122:
