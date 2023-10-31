@@ -2,11 +2,11 @@
 import random
 """Generate a random number and print its last digit"""
 
-num = random.randint(-10000, 10000)
-last_digit = abs(num) % 10
-last_digit = -last_digit if num < 0 else last_digit
+number = random.randint(-10000, 10000)
+last_digit = abs(number) % 10
+last_digit = -last_digit if number < 0 else last_digit
 
-print(f"Last digit of {num:d} is {last_digit:d} and is ", end="")
+print(f"Last digit of {number:d} is {last_digit:d} and is ", end="")
 
 if last_digit > 5:
     print("greater than 5")
