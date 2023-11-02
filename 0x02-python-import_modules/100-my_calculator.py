@@ -20,4 +20,3 @@ if __name__ == "__main__":
     b = int(argv[3])
 
     print("{} {} {} = {}".format(a, argv[2], b, operators[argv[2]](a, b)))
-
