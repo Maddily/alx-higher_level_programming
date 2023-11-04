@@ -12,7 +12,7 @@ int is_palindrome(listint_t **head)
 	int length = 0, i = 0, j, *values = NULL;
 	listint_t *last, *current;
 
-	if (*head == NULL)
+	if (*head == NULL || (*head)->next == NULL)
 		return (1);
 
 	last = current = *head;
@@ -37,8 +37,12 @@ int is_palindrome(listint_t **head)
 	for (i = 0, j = length - 1; i < j; i++, j--)
 	{
 		if (values[i] != values[j])
+		{
+			free(values);
 			return (0);
+		}
 	}
 
+	free(values);
 	return (1);
 }
