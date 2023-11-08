@@ -3,7 +3,6 @@
 def update_dictionary(a_dictionary, key, value):
     """Replace/add a key:value pair in a dictionary"""
 
-    new_dict = a_dictionary.copy()
-    new_dict[key] = value
+    a_dictionary[key] = value
 
-    return new_dict
+    return a_dictionary
