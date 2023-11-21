@@ -30,13 +30,11 @@ class Square:
     def check_position(self):
         """Check if the position is valid"""
 
-        if not isinstance(self.__position, tuple):
-            self.raise_position_error()
-        if not isinstance(self.__position[0], int):
-            self.raise_position_error()
-        if not isinstance(self.__position[1], int):
-            self.raise_position_error()
-        if self.__position[0] < 0 or self.__position[1] < 0:
+        if (not isinstance(self.__position, tuple) or
+                len(self.__position) != 2 or
+                not isinstance(self.__position[0], int) or
+                not isinstance(self.__position[1], int) or
+                self.__position[0] < 0 or self.__position[1] < 0):
             self.raise_position_error()
 
     def area(self):
@@ -55,7 +53,6 @@ class Square:
         """Set the size"""
 
         self.__size = value
-
         self.is_int()
 
     @property
