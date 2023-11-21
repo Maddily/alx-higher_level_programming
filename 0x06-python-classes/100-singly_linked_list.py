@@ -70,13 +70,10 @@ class SinglyLinkedList:
     def __str__(self):
         """Change the linked list into a string to be printed"""
 
-        string = ""
+        nodes = []
         current = self.__head
         while current is not None:
-            if current.next_node is None:
-                string += str(current.data)
-            else:
-                string += str(current.data) + "\n"
+            nodes.append(str(current.data))
             current = current.next_node
 
-        return string
+        return "\n".join(nodes)
