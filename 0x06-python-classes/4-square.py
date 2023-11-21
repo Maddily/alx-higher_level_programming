@@ -11,6 +11,8 @@ class Square:
 
         self.__size = size
 
+        self.is_int()
+
     def is_int(self):
         """Checks if a value is an integer"""
 
