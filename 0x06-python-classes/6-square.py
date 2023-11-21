@@ -22,11 +22,6 @@ class Square:
         elif self.__size < 0:
             raise ValueError("size must be >= 0")
 
-    def raise_position_error(self):
-        """Raise a TypeError if the position isn't valid"""
-
-        raise TypeError("position must be a tuple of 2 positive")
-
     def check_position(self):
         """Check if the position is valid"""
 
@@ -38,7 +33,7 @@ class Square:
                 or self.__position[0] < 0
                 or self.__position[1] < 0
                 ):
-            self.raise_position_error()
+            raise TypeError("position must be a tuple of 2 positive integers")
 
     def area(self):
         """Return the area of the square"""
