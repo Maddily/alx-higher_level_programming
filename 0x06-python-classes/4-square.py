@@ -24,8 +24,6 @@ class Square:
     def area(self):
         """Returns the area of the square"""
 
-        self.is_int()
-
         return self.__size ** 2
 
     @property
@@ -39,3 +37,5 @@ class Square:
         """Sets the size"""
 
         self.__size = value
+
+        self.is_int()
