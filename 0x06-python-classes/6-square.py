@@ -13,6 +13,7 @@ class Square:
         self.__position = position
 
         self.is_int()
+        self.check_position()
 
     def is_int(self):
         """Check if a value is an integer"""
