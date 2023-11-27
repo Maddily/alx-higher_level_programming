@@ -11,15 +11,19 @@ class Rectangle:
     """
     Rectangle: Defines a rectangle
 
-    Attributes:
+    Instance Attributes:
     - width (int): The width of a rectangle
     - height (int): The height of a rectangle
+
+    Class Attributes:
+    - number_of_instances (int): The number of instances
+    - print_symbol: The print symbol to use for printing a rectangle
 
     Properties:
     - width (int): A property representing the width
     - height (int): A property representing the height
 
-    Methods:
+    Instance Methods:
     - area() -> int: Calculate the area of the rectangle
     - perimeter() -> int: Calculate the perimiter of the rectangle
     """
