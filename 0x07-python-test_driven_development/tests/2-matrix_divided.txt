@@ -1,0 +1,318 @@
+Normal Matrix
+=============
+
+`matrix_divided()` Divides each element in the matrix by `div`.
+
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+>>> matrix = [
+...     [1, 2, 3],
+...     [4, 5, 6]
+...     ]
+>>> matrix_divided(matrix, 3) #doctest: +NORMALIZE_WHITESPACE
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+>>> print(matrix)
+[[1, 2, 3], [4, 5, 6]]
+
+>>> matrix = [
+...     [1, -0, 3],
+...     [4, 5, 6]
+...     ]
+>>> matrix_divided(matrix, 3) #doctest: +NORMALIZE_WHITESPACE
+[[0.33, 0.0, 1.0], [1.33, 1.67, 2.0]]
+
+>>> matrix = [
+...     [1, -0.0, 3],
+...     [4, 5, 6]
+...     ]
+>>> matrix_divided(matrix, 3) #doctest: +NORMALIZE_WHITESPACE
+[[0.33, -0.0, 1.0], [1.33, 1.67, 2.0]]
+
+>>> matrix = [
+...     [1.1, -2.2, 3.3],
+...     [4.4, 5.5, -6.6]
+...     ]
+>>> matrix_divided(matrix, 3) #doctest: +NORMALIZE_WHITESPACE
+[[0.37, -0.73, 1.1], [1.47, 1.83, -2.2]]
+>>> print(matrix)
+[[1.1, -2.2, 3.3], [4.4, 5.5, -6.6]]
+
+>>> matrix = [
+...     [1, float('inf'), 3],
+...     [4, 5, 6]
+...     ]
+>>> matrix_divided(matrix, 3) #doctest: +NORMALIZE_WHITESPACE
+[[0.33, inf, 1.0], [1.33, 1.67, 2.0]]
+
+>>> matrix = [
+...     [1, float('nan'), 3],
+...     [4, 5, 6]
+...     ]
+>>> matrix_divided(matrix, 3) #doctest: +NORMALIZE_WHITESPACE
+[[0.33, nan, 1.0], [1.33, 1.67, 2.0]]
+
+Non-Matrix
+==========
+
+`matrix_divided()` raises a TypeError exception
+if the matrix isn't a list of lists.
+
+>>> matrix = [
+...     1, 2, 3,
+...     [4, 5, 6]
+...     ]
+
+>>> matrix_divided(matrix, 3) #doctest: +NORMALIZE_WHITESPACE
+Traceback (most recent call last):
+            ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+>>> matrix = [1, 2, 3]
+
+>>> matrix_divided(matrix, 3)
+Traceback (most recent call last):
+            ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+>>> matrix = []
+
+>>> matrix_divided(matrix, 3)
+Traceback (most recent call last):
+            ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+>>> matrix = 20
+
+>>> matrix_divided(matrix, 3)
+Traceback (most recent call last):
+            ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+>>> matrix = "Hello"
+
+>>> matrix_divided(matrix, 3)
+Traceback (most recent call last):
+            ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+>>> matrix = None
+
+>>> matrix_divided(matrix, 3)
+Traceback (most recent call last):
+            ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Empty Matrix
+============
+`matrix_divided()` raises a TypeError exception
+if the matrix isn't a list of lists of integers/floats.
+
+>>> matrix = [
+...     [],
+...     []
+...     ]
+
+>>> matrix_divided(matrix, 3)
+Traceback (most recent call last):
+            ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Size Mismatch
+=============
+`matrix_divided() raises a TypeError exception if each row
+of the matrix isn't of the same size.
+
+>>> matrix = [
+...     [1, 2, 3, 4],
+...     [5, 6, 7]
+...     ]
+
+>>> matrix_divided(matrix, 3) +NORMALIZE_WHITESPACE
+Traceback (most recent call last):
+            ...
+TypeError: Each row of the matrix must have the same size
+
+>>> matrix = [
+...     [1, 2, 3],
+...     [4, 5, 6, 7]
+...     ]
+
+>>> matrix_divided(matrix, 3) +NORMALIZE_WHITESPACE
+Traceback (most recent call last):
+            ...
+TypeError: Each row of the matrix must have the same size
+
+Divisor
+=======
+`matrix_divided()` raises a TypeError exception if `div` isn't a number.
+
+>>> matrix = [
+...     [1, 2, 3],
+...     [4, 5, 6]
+...     ]
+>>> matrix_divided(matrix, "3") #doctest: +NORMALIZE_WHITESPACE
+Traceback (most recent call last):
+            ...
+TypeError: div must be a number
+
+>>> matrix = [
+...     [1, 2, 3],
+...     [4, 5, 6]
+...     ]
+>>> matrix_divided(matrix, None) #doctest: +NORMALIZE_WHITESPACE
+Traceback (most recent call last):
+            ...
+TypeError: div must be a number
+
+>>> matrix = [
+...     [1, 2, 3],
+...     [4, 5, 6]
+...     ]
+>>> matrix_divided(matrix, True) #doctest: +NORMALIZE_WHITESPACE
+Traceback (most recent call last):
+            ...
+TypeError: div must be a number
+
+>>> matrix = [
+...     [1, 2, 3],
+...     [4, 5, 6]
+...     ]
+>>> matrix_divided(matrix, False) #doctest: +NORMALIZE_WHITESPACE
+Traceback (most recent call last):
+            ...
+TypeError: div must be a number
+
+>>> matrix = [
+...     [1, 2, 3],
+...     [4, 5, 6]
+...     ]
+>>> matrix_divided(matrix, 10 ** 10) #doctest: +NORMALIZE_WHITESPACE
+[[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+
+>>> matrix = [
+...     [1, 2, 3],
+...     [4, 5, 6]
+...     ]
+>>> matrix_divided(matrix, 1.2e3) #doctest: +NORMALIZE_WHITESPACE
+[[0.0, 0.0, 0.0], [0.0, 0.0, 0.01]]
+
+>>> matrix = [
+...     [1, 2, 3],
+...     [4, 5, 6]
+...     ]
+>>> matrix_divided(matrix, float('inf')) #doctest: +NORMALIZE_WHITESPACE
+[[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+
+>>> matrix = [
+...     [1, 2, 3],
+...     [4, 5, 6]
+...     ]
+>>> matrix_divided(matrix, float('nan')) #doctest: +NORMALIZE_WHITESPACE
+[[nan, nan, nan], [nan, nan, nan]]
+
+Zero Divisor
+============
+`matrix_divided()` raises a ZeroDivisionError exception if `div` is 0
+
+>>> matrix = [
+...     [1, 2, 3],
+...     [4, 5, 6]
+...     ]
+>>> matrix_divided(matrix, 0) #doctest: +NORMALIZE_WHITESPACE
+Traceback (most recent call last):
+            ...
+ZeroDivisionError: division by zero
+
+>>> matrix = [
+...     [1, 2, 3],
+...     [4, 5, 6]
+...     ]
+>>> matrix_divided(matrix, 0.0) #doctest: +NORMALIZE_WHITESPACE
+Traceback (most recent call last):
+            ...
+ZeroDivisionError: division by zero
+
+>>> matrix = [
+...     [1, 2, 3],
+...     [4, 5, 6]
+...     ]
+>>> matrix_divided(matrix, -0) #doctest: +NORMALIZE_WHITESPACE
+Traceback (most recent call last):
+            ...
+ZeroDivisionError: division by zero
+
+>>> matrix = [
+...     [1, 2, 3],
+...     [4, 5, 6]
+...     ]
+>>> matrix_divided(matrix, -0.0) #doctest: +NORMALIZE_WHITESPACE
+Traceback (most recent call last):
+            ...
+ZeroDivisionError: division by zero
+
+Large Numbers
+==============
+`matrix_divided()` functions correctly with large numbers.
+
+>>> matrix = [
+...     [1, 10 ** 10, 3],
+...     [4, 5, 6]
+...     ]
+>>> matrix_divided(matrix, 3) #doctest: +NORMALIZE_WHITESPACE
+[[0.33, 3333333333.33, 1.0], [1.33, 1.67, 2.0]]
+
+>>> matrix = [
+...     [1, 1e20, 3],
+...     [4, 5, 6]
+...     ]
+>>> matrix_divided(matrix, 3) #doctest: +NORMALIZE_WHITESPACE
+[[0.33, 3.333333333333333e+19, 1.0], [1.33, 1.67, 2.0]]
+
+>>> matrix = [
+...     [1, 1.2e3, 3],
+...     [4, 5, 6]
+...     ]
+>>> matrix_divided(matrix, 3) #doctest: +NORMALIZE_WHITESPACE
+[[0.33, 400.0, 1.0], [1.33, 1.67, 2.0]]
+
+Non-Numbers
+===========
+
+`matrix_divided()` raises a TypeError exception
+if the matrix isn't a list of lists of integers or floats.
+
+>>> matrix = [
+...     [1, "Hi", 3],
+...     ["4", 5, 6]
+...     ]
+>>> matrix_divided(matrix, 3) #doctest: +NORMALIZE_WHITESPACE
+Traceback (most recent call last):
+            ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+>>> matrix = [
+...     [1, None, 3],
+...     [None, 5, 6]
+...     ]
+>>> matrix_divided(matrix, 3) #doctest: +NORMALIZE_WHITESPACE
+Traceback (most recent call last):
+            ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+>>> matrix = [
+...     [1, True, 3],
+...     [4, 5, 6]
+...     ]
+>>> matrix_divided(matrix, 3) #doctest: +NORMALIZE_WHITESPACE
+Traceback (most recent call last):
+            ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+>>> matrix = [
+...     [1, False, 3],
+...     [4, 5, 6]
+...     ]
+>>> matrix_divided(matrix, 3) #doctest: +NORMALIZE_WHITESPACE
+Traceback (most recent call last):
+            ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
