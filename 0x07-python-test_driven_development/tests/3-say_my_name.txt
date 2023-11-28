@@ -1,0 +1,98 @@
+Normal
+======
+`say_my_name()` prints the message "My name is <first name> <last name>".
+If the <last name> argument isn't passed, it's an empty string by default.
+
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+>>> say_my_name("Mohammad", "Ali")
+My name is Mohammad Ali
+>>> say_my_name("Mohammad")
+My name is Mohammad 
+
+Non-String
+==========
+`say_my_name()` raises a TypeError exception
+if either of the arguments are not strings.
+
+>>> say_my_name(12, "Ali")
+Traceback (most recent call last):
+            ...
+TypeError: first_name must be a string
+
+>>> say_my_name("Mohammad", 1)
+Traceback (most recent call last):
+            ...
+TypeError: last_name must be a string
+
+>>> say_my_name(12, 1)
+Traceback (most recent call last):
+            ...
+TypeError: first_name must be a string
+
+>>> say_my_name(None, "Ali")
+Traceback (most recent call last):
+            ...
+TypeError: first_name must be a string
+
+>>> say_my_name("Mohammad", 123)
+Traceback (most recent call last):
+            ...
+TypeError: last_name must be a string
+
+>>> say_my_name(None)
+Traceback (most recent call last):
+            ...
+TypeError: first_name must be a string
+
+>>> say_my_name("Hi", ["Test", "Test", "Test"])
+Traceback (most recent call last):
+            ...
+TypeError: last_name must be a string
+
+>>> say_my_name({"Hello": 1, "World": 2}, 4)
+Traceback (most recent call last):
+            ...
+TypeError: first_name must be a string
+
+Missing Arguments
+=================
+
+>>> say_my_name()
+Traceback (most recent call last):
+...
+TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+
+Other Cases
+===========
+`say_my_name()` handles these cases normally
+
+>>> say_my_name("", "")
+My name is  
+
+>>> say_my_name(" ", " ")
+My name is    
+
+>>> say_my_name("123", "456")
+My name is 123 456
+
+>>> say_my_name("Mohammad", "$#%")
+My name is Mohammad $#%
+
+>>> say_my_name("mohammad", "ALI")
+My name is mohammad ALI
+
+>>> say_my_name("", "Ali")
+My name is  Ali
+
+>>> say_my_name("a" * 10**2, "b" * 10**2)
+My name is aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+>>> say_my_name("  Mohammad  ", "Ali")
+My name is   Mohammad   Ali
+
+>>> say_my_name("Mohammad", "  Ali  ")
+My name is Mohammad   Ali  
+
+>>> say_my_name("Mohammad", "  ")
+My name is Mohammad   
