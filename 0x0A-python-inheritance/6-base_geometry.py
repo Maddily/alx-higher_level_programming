@@ -2,7 +2,7 @@
 """
 Module Name: 6-base_geometry
 
-Description: This module defines an empty class `BaseGeometry`.
+Description: This module defines a class `BaseGeometry`.
 """
 
 
