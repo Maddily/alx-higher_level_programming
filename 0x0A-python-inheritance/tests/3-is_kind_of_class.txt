@@ -1,0 +1,38 @@
+>>> is_kind_of_class = __import__('3-is_kind_of_class').is_kind_of_class
+
+>>> class Dog:
+...     pass
+>>> obj = Dog()
+>>> is_kind_of_class(obj, Dog)
+True
+
+>>> class Animal:
+...     pass
+>>> yet_another_obj = Animal()
+>>> is_kind_of_class(yet_another_obj, Animal)
+True
+
+>>> class Cat(Animal):
+...     pass
+>>> another_obj = Cat()
+>>> is_kind_of_class(another_obj, Dog)
+False
+
+>>> mimmi = Cat()
+>>> is_kind_of_class(mimmi, Animal)
+True
+
+>>> is_kind_of_class(42, int)
+True
+
+>>> is_kind_of_class("hello", str)
+True
+
+>>> is_kind_of_class([1, 2, 3], list)
+True
+
+>>> is_kind_of_class([1, 2, 3], int)
+False
+
+>>> is_kind_of_class(True, int)
+True
