@@ -31,3 +31,31 @@ Exception: area() is not implemented
 Traceback (most recent call last):
             ...
 Exception: area() is not implemented
+
+>>> class ValidGeometry(BaseGeometry):
+...     def area(self):
+...         return 10
+...
+>>> valid_geom = ValidGeometry()
+>>> valid_geom.area()
+10
+
+>>> bg.integer_validator("temperature", 25.5)
+Traceback (most recent call last):
+            ...
+TypeError: temperature must be an integer
+
+>>> class AnotherValidGeometry(BaseGeometry):
+...     pass
+...
+>>> another_valid_geom = AnotherValidGeometry()
+>>> another_valid_geom.integer_validator("width", 15)
+
+>>> class InvalidGeometry:
+...     pass
+...
+>>> invalid_geom = InvalidGeometry()
+>>> bg.integer_validator("height", invalid_geom)
+Traceback (most recent call last):
+            ...
+TypeError: height must be an integer
