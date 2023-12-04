@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """
-Module Name: 7-base_geometry
+Module Name: 8-rectangle
 
-Description: This module defines a class `BaseGeometry`.
+Description: This module defines a class `Rectangle`.
 """
 
 
