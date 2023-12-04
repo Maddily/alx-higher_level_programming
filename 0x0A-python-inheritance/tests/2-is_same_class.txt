@@ -1,0 +1,35 @@
+>>> is_same_class = __import__('2-is_same_class').is_same_class
+
+>>> class Dog:
+...     pass
+>>> obj = Dog()
+>>> is_same_class(obj, Dog)
+True
+
+>>> class Cat:
+...     pass
+>>> another_obj = Cat()
+>>> is_same_class(another_obj, Dog)
+False
+
+>>> class Animal:
+...     pass
+>>> yet_another_obj = Animal()
+>>> is_same_class(yet_another_obj, Animal)
+True
+
+>>> mimmi = Cat()
+>>> is_same_class(mimmi, Animal)
+False
+
+>>> is_same_class(42, int)
+True
+
+>>> is_same_class("hello", str)
+True
+
+>>> is_same_class([1, 2, 3], list)
+True
+
+>>> is_same_class([1, 2, 3], int)
+False
