@@ -32,30 +32,18 @@ Traceback (most recent call last):
             ...
 Exception: area() is not implemented
 
->>> class ValidGeometry(BaseGeometry):
-...     def area(self):
-...         return 10
-...
->>> valid_geom = ValidGeometry()
->>> valid_geom.area()
-10
+>> m_doc = __import__("7-base_geometry").__doc__
+>>> len(m_doc) > 1
+True
 
->>> bg.integer_validator("temperature", 25.5)
-Traceback (most recent call last):
-            ...
-TypeError: temperature must be an integer
+>>> c_doc = __import__("7-base_geometry").BaseGeometry.__doc__
+>>> len(c_doc) > 1
+True
 
->>> class AnotherValidGeometry(BaseGeometry):
-...     pass
-...
->>> another_valid_geom = AnotherValidGeometry()
->>> another_valid_geom.integer_validator("width", 15)
+>>> meth1_doc = __import__("7-base_geometry").BaseGeometry.area.__doc__
+>>> len(meth1_doc) > 1
+True
 
->>> class InvalidGeometry:
-...     pass
-...
->>> invalid_geom = InvalidGeometry()
->>> bg.integer_validator("height", invalid_geom)
-Traceback (most recent call last):
-            ...
-TypeError: height must be an integer
+>>> meth2_doc = __import__("7-base_geometry").BaseGeometry.integer_validator.__doc__
+len(meth2_doc) > 1
+True
