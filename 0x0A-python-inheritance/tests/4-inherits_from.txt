@@ -1,0 +1,38 @@
+>>> inherits_from = __import__('4-inherits_from').inherits_from
+
+>>> class Dog:
+...     pass
+>>> obj = Dog()
+>>> inherits_from(obj, Dog)
+False
+
+>>> class Animal:
+...     pass
+>>> yet_another_obj = Animal()
+>>> inherits_from(yet_another_obj, Animal)
+False
+
+>>> class Cat(Animal):
+...     pass
+>>> another_obj = Cat()
+>>> inherits_from(another_obj, Dog)
+False
+
+>>> mimmi = Cat()
+>>> inherits_from(mimmi, Animal)
+True
+
+>>> inherits_from(42, int)
+False
+
+>>> inherits_from("hello", str)
+False
+
+>>> inherits_from([1, 2, 3], list)
+False
+
+>>> inherits_from([1, 2, 3], int)
+False
+
+>>> inherits_from(True, int)
+True
