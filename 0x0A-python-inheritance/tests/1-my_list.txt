@@ -1,0 +1,73 @@
+>>> MyList =__import__('1-my_list').MyList
+
+
+>>> my_list = MyList()
+
+>>> my_list.append(1)
+>>> my_list.append(4)
+>>> my_list.append(2)
+>>> my_list.append(3)
+>>> my_list.append(5)
+>>> my_list
+[1, 4, 2, 3, 5]
+>>> my_list.print_sorted()
+[1, 2, 3, 4, 5]
+>>> my_list
+[1, 4, 2, 3, 5]
+
+Empty List
+==========
+
+>>> my_list = MyList()
+>>> my_list
+[]
+>>> my_list.print_sorted()
+[]
+
+Negative Numbers
+================
+
+>>> my_list = MyList()
+>>> my_list.append(-2)
+>>> my_list.append(0)
+>>> my_list.append(-4)
+>>> my_list.print_sorted()
+[-4, -2, 0]
+
+Repeated Elements
+=================
+
+>>> my_list = MyList()
+>>> my_list.append(2)
+>>> my_list.append(1)
+>>> my_list.append(2)
+>>> my_list.append(1)
+>>> my_list.print_sorted()
+[1, 1, 2, 2]
+
+Large List
+==========
+
+>>> my_list = MyList()
+>>> for i in range(10000, 9990, -1):
+...     my_list.append(i)
+>>> my_list.print_sorted()
+[9991, 9992, 9993, 9994, 9995, 9996, 9997, 9998, 9999, 10000]
+
+Single Element
+==============
+
+>>> my_list = MyList()
+>>> my_list.append(4)
+>>> my_list.print_sorted()
+[4]
+
+Sorted List
+===========
+
+>>> my_list = MyList()
+>>> my_list.append(1)
+>>> my_list.append(2)
+>>> my_list.append(3)
+>>> my_list.print_sorted()
+[1, 2, 3]
