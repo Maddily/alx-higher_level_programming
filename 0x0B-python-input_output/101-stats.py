@@ -23,7 +23,7 @@ def print_statistics(total_size, status_counts):
 if __name__ == "__main__":
     import sys
 
-    i = 1
+    i = 0
     total_size = 0
     status_counts = {}
     possible_status_codes = ['200', '301', '400',
@@ -31,6 +31,10 @@ if __name__ == "__main__":
 
     try:
         for line in sys.stdin:
+            if i % 10 == 0 and i != 0:
+                print_statistics(total_size, status_counts)
+            i += 1
+
             line = line.split()
             try:
                 total_size += int(line[-1])
@@ -45,11 +49,6 @@ if __name__ == "__main__":
                         status_counts[line[-2]] += 1
             except Exception:
                 pass
-
-            if i % 10 == 0 and i != 0:
-                print_statistics(total_size, status_counts)
-
-            i += 1
 
     except KeyboardInterrupt:
         print_statistics(total_size, status_counts)
