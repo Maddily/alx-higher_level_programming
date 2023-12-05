@@ -4,10 +4,6 @@ Module Name: 101-stats
 
 Description: This module reads stdin line by line and computes metrics
 """
-import re
-import signal
-import sys
-from collections import defaultdict
 
 
 def print_statistics(total_size, status_counts):
@@ -24,44 +20,37 @@ def print_statistics(total_size, status_counts):
         print(f"{status_code}: {status_counts[status_code]}")
 
 
-def handle_interrupt(signum, frame):
-    """
-    Handles a keyboard interrupt.
-
-    Parameters:
-    - signum: Signal number that has triggered the signal handler
-        (it's passed as None because it's not needed in this case)
-    - frame: The current stack frame at the time the signal was received.
-        (it's passed as None because it's not needed in this case)
-    """
-    print_statistics(total_size, status_counts)
-    exit(0)
-
-
 if __name__ == "__main__":
+    import sys
+
     i = 1
     total_size = 0
-    status_counts = defaultdict(int)
-    statistics = open("statistics.txt", "w", encoding="utf-8")
-    pattern = re.compile(
-        r'^(\d+\.\d+\.\d+\.\d+) - \[([^\]]+)\] "GET /projects/260 HTTP/1\.1" '
-        r'(\d+) (\d+)$'
-    )
-
-    signal.signal(signal.SIGINT, handle_interrupt)
+    status_counts = {}
+    possible_status_codes = ['200', '301', '400',
+                             '401', '403', '404', '405', '500']
 
     try:
         for line in sys.stdin:
-            match = pattern.match(line)
-            if match:
-                ip_address, date, status_code, file_size = match.groups()
-                total_size += int(file_size)
-                status_counts[status_code] += 1
+            line = line.split()
+            try:
+                total_size += int(line[-1])
+            except Exception:
+                pass
 
-                if i % 10 == 0 and i != 0:
-                    print_statistics(total_size, status_counts)
+            try:
+                if line[-2] in possible_status_codes:
+                    if status_counts.get(line[-2], -1) == -1:
+                        status_counts[line[-2]] = 1
+                    else:
+                        status_counts[line[-2]] += 1
+            except Exception:
+                pass
 
-                i += 1
+            if i % 10 == 0 and i != 0:
+                print_statistics(total_size, status_counts)
+
+            i += 1
 
     except KeyboardInterrupt:
-        handle_interrupt(None, None)
+        print_statistics(total_size, status_counts)
+        raise
