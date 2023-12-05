@@ -37,7 +37,8 @@ class Student:
          - attrs: Could be a list of attribute names
         """
 
-        if attrs:
+        if isinstance(attrs, list) and all(isinstance(attr, str)
+                                           for attr in attrs):
             return {attr: getattr(self, attr)
                     for attr in attrs if hasattr(self, attr)
                     and not callable(getattr(self, attr))}
