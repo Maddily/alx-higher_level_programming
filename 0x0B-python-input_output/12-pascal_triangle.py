@@ -18,6 +18,9 @@ def pascal_triangle(n):
     i = 2
     j = 0
 
+    if n <= 0:
+        return []
+
     while i < 5:
         while j < i:
             if j == 0:
