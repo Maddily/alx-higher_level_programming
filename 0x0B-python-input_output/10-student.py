@@ -39,7 +39,8 @@ class Student:
 
         if attrs:
             return {attr: getattr(self, attr)
-                    for attr in attrs if attr in self.__dict__}
+                    for attr in attrs if hasattr(self, attr)
+                    and not callable(getattr(self, attr))}
 
         return {attr: getattr(self, attr) for attr in self.__dict__
                 if not callable(getattr(self, attr))}
