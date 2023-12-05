@@ -15,5 +15,7 @@ def read_file(filename=""):
     - filename: The name/path of a file
     """
 
+    if not filename:
+        return
     with open(filename, encoding="utf-8") as file:
         print(file.read())
