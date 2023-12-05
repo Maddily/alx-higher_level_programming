@@ -13,31 +13,16 @@ def pascal_triangle(n):
     representing the Pascal's triangle of n
     """
 
-    triangle = [[1], [1, 1]]
-    sub_triangle = []
-    i = 2
-    j = 0
+    triangle = [[1]]
 
     if n <= 0:
         return []
-    if n == 1:
-        return [[1]]
-    if n == 2:
-        return triangle
 
-    while i < 5:
-        while j < i:
-            if j == 0:
-                sub_triangle.append(1)
-                j += 1
-            else:
-                sub_triangle.append(triangle[i - 1][j - 1]
-                                    + triangle[i - 1][j])
-                j += 1
-        sub_triangle.append(1)
-        j = 0
-        triangle.append(sub_triangle)
-        sub_triangle = []
-        i += 1
+    for i in range(1, n):
+        row =\
+            [1] +\
+            [triangle[i - 1][j - 1] + triangle[i - 1][j] for j in range(1, i)]\
+            + [1]
+        triangle.append(row)
 
     return triangle
