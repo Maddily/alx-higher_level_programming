@@ -27,3 +27,4 @@ if __name__ == '__main__':
     session.commit()
 
     print(louisiana.id)
+    session.close()
