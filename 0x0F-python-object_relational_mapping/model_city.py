@@ -3,12 +3,9 @@
 This module contains a class City that links to cities table.
 """
 
-from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy.orm import relationship
 from model_state import Base
-
-
-Base = declarative_base()
 
 
 class City(Base):
@@ -31,6 +28,8 @@ class City(Base):
     state_id = Column(
         'state_id', Integer, ForeignKey('states.id'), nullable=False
         )
+
+    state = relationship("State")
 
     def __init__(self, name, state_id):
         """Instantiates a city"""
