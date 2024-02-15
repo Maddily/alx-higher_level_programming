@@ -18,8 +18,6 @@ Base = declarative_base()
 class State(Base):
     """
     Class Attributes:
-    - id (int): A column of auto-generated, unique integer
-    that can't be null and is a primary key.
     - name (str): A column of a string with maximum
     128 characters and can't be null.
     """
