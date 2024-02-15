@@ -34,8 +34,7 @@ class State(Base):
         )
     name = Column('name', String(128), nullable=False)
 
-    def __init__(self, id, name):
+    def __init__(self, name):
         """Instantiates a state"""
 
-        self.id = id
         self.name = name
