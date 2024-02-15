@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This script lists all states with a name starting with N.
+Builds off 2-my_filter_states by making it safe from MySQL injections.
 """
 
 import MySQLdb
