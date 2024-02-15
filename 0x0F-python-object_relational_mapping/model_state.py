@@ -5,12 +5,7 @@ This module contains a class State that links to states table.
 
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String
-import sys
 
-
-username = sys.argv[1]
-password = sys.argv[2]
-database = sys.argv[3]
 
 Base = declarative_base()
 
