@@ -15,9 +15,7 @@ if __name__ == '__main__':
 
     cursor = db.cursor()
 
-    query = "SELECT * FROM cities WHERE ORDER BY cities.id"
-
-    cursor.execute(query)
+    cursor.execute("SELECT * FROM cities WHERE ORDER BY cities.id")
     rows = cursor.fetchall()
 
     for row in rows:
