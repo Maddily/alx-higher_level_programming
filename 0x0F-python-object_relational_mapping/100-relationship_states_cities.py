@@ -38,4 +38,5 @@ if __name__ == '__main__':
         print(e)
 
     finally:
-        session.close()
+        if 'session' in locals():
+            session.close()
