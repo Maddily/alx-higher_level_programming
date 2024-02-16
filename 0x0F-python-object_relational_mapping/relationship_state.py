@@ -30,7 +30,6 @@ class State(Base):
     cities = relationship(
         'City',
         cascade='all, delete-orphan',
-        backref='state',
         back_populates='state'
         )
 
