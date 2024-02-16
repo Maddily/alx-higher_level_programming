@@ -6,7 +6,7 @@ This script changes the name of a State object.
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from relationship_state import Base, State
+from model_state import Base, State
 
 
 if __name__ == '__main__':
