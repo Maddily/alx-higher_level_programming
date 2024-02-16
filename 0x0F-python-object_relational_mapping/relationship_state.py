@@ -23,17 +23,12 @@ class State(Base):
     __tablename__ = 'states'
 
     id = Column(
-        'id', Integer, nullable=False, autoincrement=True, primary_key=True
+        Integer, nullable=False, autoincrement=True, primary_key=True
         )
-    name = Column('name', String(128), nullable=False)
+    name = Column(String(128), nullable=False)
 
     cities = relationship(
         'City',
         cascade='all, delete-orphan',
         back_populates='state'
         )
-
-    def __init__(self, name):
-        """Instantiates a state"""
-
-        self.name = name
