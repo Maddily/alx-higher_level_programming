@@ -6,7 +6,7 @@ This script lists all State objects, and corresponding City objects.
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from relationship_city import Base, City
+from relationship_city import Base
 from relationship_state import State
 
 
@@ -28,9 +28,7 @@ if __name__ == '__main__':
 
     states = (
         session.query(State)
-        .join(City)
-        .order_by(State.id, City.id)
-        .all()
+        .order_by(State.id)
         )
 
     for state in states:
