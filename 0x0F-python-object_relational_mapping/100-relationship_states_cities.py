@@ -16,17 +16,23 @@ if __name__ == '__main__':
     password = sys.argv[2]
     database = sys.argv[3]
 
-    engine = create_engine(
-        f'mysql+mysqldb://{username}:{password}@localhost/{database}'
-        )
+    try:
+        engine = create_engine(
+            f'mysql+mysqldb://{username}:{password}@localhost/{database}'
+            )
 
-    Session = sessionmaker(bind=engine)
-    session = Session()
+        Session = sessionmaker(bind=engine)
+        session = Session()
 
-    california = State(name='California')
-    san_francisco = City(name='San Francisco', state_id=california.id)
+        california = State(name='California')
+        san_francisco = City(name='San Francisco', state_id=california.id)
 
-    session.add(california)
-    session.add(san_francisco)
-    session.commit()
-    session.close()
+        session.add(california)
+        session.add(san_francisco)
+        session.commit()
+
+    except Exception as e:
+        print(e)
+
+    finally:
+        session.close()
