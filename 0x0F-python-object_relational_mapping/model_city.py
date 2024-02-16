@@ -4,7 +4,6 @@ This module contains a class City that links to cities table.
 """
 
 from sqlalchemy import Column, Integer, String, ForeignKey
-from sqlalchemy.orm import relationship
 from model_state import Base
 
 
@@ -28,9 +27,3 @@ class City(Base):
     state_id = Column(
         'state_id', Integer, ForeignKey('states.id'), nullable=False
         )
-
-    def __init__(self, name, state_id):
-        """Instantiates a city"""
-
-        self.name = name
-        self.state_id = state_id
