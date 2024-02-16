@@ -26,15 +26,15 @@ if __name__ == '__main__':
 
     states = (
         session.query(State)
-        .order_by(State.id)
+        .join(City)
+        .order_by(State.id, City.id)
+        .all()
         )
 
     for state in states:
         print(f'{state.id}: {state.name}')
 
-        cities = sorted(state.cities, key=lambda city: city.id)
-
-        for city in cities:
+        for city in state.cities:
             print(f'    {city.id}: {city.name}')
 
     session.close()
