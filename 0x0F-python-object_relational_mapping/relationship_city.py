@@ -29,7 +29,7 @@ class City(Base):
         'state_id', Integer, ForeignKey('states.id'), nullable=False
         )
 
-    state = relationship("State")
+    state_relationship = relationship("State")
 
     def __init__(self, name, state_id):
         """Instantiates a city"""
