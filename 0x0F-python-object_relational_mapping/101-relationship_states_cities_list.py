@@ -6,8 +6,8 @@ This script lists all State objects, and corresponding City objects.
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from relationship_state import Base, State
-from relationship_city import City
+from relationship_city import Base, City
+from relationship_state import State
 
 
 if __name__ == '__main__':
@@ -38,3 +38,5 @@ if __name__ == '__main__':
 
         for city in state.cities:
             print(f'    {city.id}: {city.name}')
+
+    session.close()
