@@ -23,7 +23,10 @@ if __name__ == '__main__':
     session = Session()
 
     states = session.query(State).options(
-        joinedload(State.cities).order_by(City.id)).order_by(State.id).all()
+        joinedload(State.cities).load_only(
+            City.id, City.name
+            ).order_by(City.id)
+        ).order_by(State.id).all()
 
     for state in states:
         print(f'{state.id}: {state.name}')
